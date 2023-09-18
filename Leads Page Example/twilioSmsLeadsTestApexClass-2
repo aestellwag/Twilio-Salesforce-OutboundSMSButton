@@ -1,0 +1,24 @@
+@isTest
+private class Test_twilioSmsLeadsApexClass {
+    @isTest static void testSendSmsApexRequest() {
+        // Let's assume you have a Lead with Id '00Q55000007tg5MEAQ' in your Org
+        String leadId = '00Q55000007tg5MEAQ';
+        String message = 'test message';
+        // Let's assume you have a User with Id '0055G000007eNgsQAE' and a Phone number in your Org
+        String userId = '0055G000007eNgsQAE';     
+        
+        Test.startTest();
+            Map<String, Object> result = twilioSmsLeadsApexClass.sendSmsApexRequest(leadId, message, userId);
+        Test.stopTest();
+        
+        // Confirm that the proper SMS message is returned and that the method works
+        System.assertNotEquals(null, result);
+        
+        // Please replace this expectedResponseMap with a valid response that is expected from the Twilio API as per your Org
+        Map<String, Object> expectedResponseMap = new Map<String, Object>();
+        expectedResponseMap.put('ABC', 'XYZ');
+        
+        // Check if the result matches the expected response.
+        System.assertEquals(expectedResponseMap, result, 'The response received from the Twilio API does not match the expected response');
+    }
+}

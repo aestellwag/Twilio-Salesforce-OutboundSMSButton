@@ -1,0 +1,20 @@
+@isTest
+public class LeadsTest {
+
+    @isTest
+    public static void testGetContactDetails() {
+        // Create a new lead record
+        Lead lead = new Lead(FirstName = 'John', LastName = 'Doe', Phone = '123-456-7890', MobilePhone = '987-654-3210', Company = 'Test Company');
+        insert lead;
+
+        // Get the lead details
+        Leads leadsObj = new Leads();
+        List<Lead> leadDetails = leadsObj.getLeadDetails(lead.Id);
+
+        // Verify that the lead details are correct
+        System.assertEquals(1, leadDetails.size());
+        System.assertEquals('John Doe', leadDetails[0].Name);
+        System.assertEquals('123-456-7890', leadDetails[0].Phone);
+        System.assertEquals('987-654-3210', leadDetails[0].MobilePhone);
+    }
+}
